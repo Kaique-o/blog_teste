@@ -1,0 +1,33 @@
+<article class="card project-card">
+  <div class="card-body">
+    <div class="card-meta">
+      {% if project.stack %}
+        <span class="muted">{{ project.stack }}</span>
+      {% endif %}
+      {% if project.tags and project.tags.size > 0 %}
+        <span class="meta-sep" aria-hidden="true">•</span>
+        <span class="tagline">
+          {% for t in project.tags limit: 3 %}
+            <span class="chip">{{ t }}</span>
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+
+    <h3 class="card-title">
+      <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+    </h3>
+
+    <p class="card-excerpt">{{ project.description | default: project.excerpt | strip_html | truncate: 160 }}</p>
+
+    <div class="card-actions">
+      <a class="btn btn-small" href="{{ project.url | relative_url }}">ver detalhes</a>
+      {% if project.demo_url %}
+        <a class="btn btn-small btn-ghost" href="{{ project.demo_url }}" target="_blank" rel="noopener">demo</a>
+      {% endif %}
+      {% if project.repo_url %}
+        <a class="btn btn-small btn-ghost" href="{{ project.repo_url }}" target="_blank" rel="noopener">repo</a>
+      {% endif %}
+    </div>
+  </div>
+</article>

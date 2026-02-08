@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<article class="project">
+  <div class="container">
+    <header class="post-header">
+      <p class="muted small">projeto</p>
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.description %}<p class="post-subtitle">{{ page.description }}</p>{% endif %}
+
+      <div class="post-meta">
+        {% if page.stack %}<span class="muted">{{ page.stack }}</span>{% endif %}
+        {% if page.tags and page.tags.size > 0 %}
+          <span class="meta-sep" aria-hidden="true">•</span>
+          <span class="tagline">
+            {% for t in page.tags %}<span class="chip">{{ t }}</span>{% endfor %}
+          </span>
+        {% endif %}
+      </div>
+
+      <div class="project-links">
+        {% if page.demo_url %}<a class="btn btn-small" href="{{ page.demo_url }}" target="_blank" rel="noopener">demo</a>{% endif %}
+        {% if page.repo_url %}<a class="btn btn-small btn-ghost" href="{{ page.repo_url }}" target="_blank" rel="noopener">repo</a>{% endif %}
+      </div>
+    </header>
+
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
+</article>

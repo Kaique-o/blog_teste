@@ -1,0 +1,36 @@
+---
+layout: page
+title: artigos
+subtitle: "tutoriais e artigos proprios com filtro por tag e busca"
+permalink: /artigos/
+---
+
+<div class="filters" role="region" aria-label="filtros de artigos">
+  <div class="filter-row">
+    <input class="input" type="search" placeholder="buscar por titulo" aria-label="buscar por titulo" data-post-search>
+    <a class="btn btn-small btn-ghost" href="{{ '/tags/' | relative_url }}">ver todas as tags</a>
+  </div>
+
+  <div class="tag-list" aria-label="filtro por tag">
+    {% assign tags_sorted = site.tags | sort %}
+    {% for t in tags_sorted %}
+      {% assign tag_name = t[0] %}
+      {% assign tag_slug = tag_name | slugify %}
+      <button class="tag-pill" type="button" aria-pressed="false" data-tag-pill="{{ tag_slug }}">
+        {{ tag_name }} <span class="muted">({{ t[1].size }})</span>
+      </button>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="grid" style="margin-top:18px" data-post-list>
+  {% for post in site.posts %}
+    <div class="col-6" data-post-card data-tags="{% for t in post.tags %}{{ t | slugify }}{% unless forloop.last %},{% endunless %}{% endfor %}" data-title="{{ post.title | escape }}">
+      {% include post-card.html post=post %}
+    </div>
+  {% endfor %}
+</div>
+
+<p class="muted" style="margin-top:16px">
+  dica: voce pode compartilhar um filtro pronto usando url tipo <code>/artigos/?tag=acessibilidade</code>
+</p>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    {% include head.html %}
+  </head>
+  <body class="theme-dark">
+    <a class="skip-link" href="#conteudo">pular para conteudo</a>
+    {% include header.html %}
+    <main id="conteudo" class="site-main" tabindex="-1">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </body>
+</html>

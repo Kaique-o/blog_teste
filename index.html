@@ -1,0 +1,86 @@
+---
+layout: default
+title: home
+description: "projetos, tutoriais e artigos proprios"
+---
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="kicker">ola, eu sou o ka</p>
+      <h1 class="hero-title">
+        arquiteto de experiencias<br>
+        digitais. <span class="dim">construindo o</span><br>
+        <span class="dim">futuro da web com codigo</span><br>
+        <span class="dim">limpo e design intuitivo.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        especialista em construir solucoes web escalaveis, acessiveis e focadas na conversao.
+        aqui eu publico projetos, tutoriais e artigos com o que realmente funciona no mundo real.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ '/projetos/' | relative_url }}">ver projetos</a>
+        <a class="btn" href="{{ '/contato/' | relative_url }}">entrar em contato</a>
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <h2>o que voce vai achar aqui</h2>
+      <p>posts tecnicos, bastidores de projetos, templates e tutoriais direto ao ponto.</p>
+
+      <div class="hero-stats" aria-label="destaques">
+        <div class="stat">
+          <div class="num">{{ site.posts | size }}</div>
+          <div class="lbl">artigos</div>
+        </div>
+        <div class="stat">
+          <div class="num">{{ site.projects | size }}</div>
+          <div class="lbl">projetos</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">projetos em destaque</h2>
+    <p class="section-subtitle">uma selecao do que eu fiz recentemente</p>
+
+    <div class="grid">
+      {% assign featured = site.projects | sort: "date" | reverse | slice: 0, 2 %}
+      {% for project in featured %}
+        <div class="col-6">
+          {% include project-card.html project=project %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top:14px">
+      <a class="btn btn-small" href="{{ '/projetos/' | relative_url }}">ver todos os projetos</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">ultimos artigos</h2>
+    <p class="section-subtitle">tutoriais e artigos autorais</p>
+
+    <div class="grid">
+      {% assign latest = site.posts | slice: 0, 4 %}
+      {% for post in latest %}
+        <div class="col-6" data-post-card>
+          {% include post-card.html post=post %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div style="margin-top:14px">
+      <a class="btn btn-small" href="{{ '/artigos/' | relative_url }}">ir para artigos</a>
+      <a class="btn btn-small btn-ghost" href="{{ '/tags/' | relative_url }}">ver tags</a>
+    </div>
+  </div>
+</section>

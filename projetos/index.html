@@ -1,0 +1,15 @@
+---
+layout: page
+title: projetos
+subtitle: "projetos que eu fiz e estudos de caso"
+permalink: /projetos/
+---
+
+<div class="grid">
+  {% assign list = site.projects | sort: "date" | reverse %}
+  {% for project in list %}
+    <div class="col-6">
+      {% include project-card.html project=project %}
+    </div>
+  {% endfor %}
+</div>

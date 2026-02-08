@@ -1,0 +1,36 @@
+---
+layout: page
+title: tags
+subtitle: "mapa de tags do blog"
+permalink: /tags/
+---
+
+<div class="grid">
+  {% assign tags_sorted = site.tags | sort %}
+  {% for t in tags_sorted %}
+    {% assign tag_name = t[0] %}
+    {% assign tag_slug = tag_name | slugify %}
+    <div class="col-6">
+      <article class="card">
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="chip">{{ tag_name }}</span>
+            <span class="muted">{{ t[1].size }} posts</span>
+          </div>
+
+          <h3 class="card-title">
+            <a href="{{ '/artigos/' | relative_url }}?tag={{ tag_slug }}">ver artigos</a>
+          </h3>
+
+          <p class="card-excerpt">
+            ultimos posts com essa tag:
+            {% assign tagged_posts = t[1] | sort: "date" | reverse | slice: 0, 3 %}
+            {% for p in tagged_posts %}
+              <br>• <a class="muted" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            {% endfor %}
+          </p>
+        </div>
+      </article>
+    </div>
+  {% endfor %}
+</div>
