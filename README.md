@@ -28,3 +28,8 @@ bundle exec jekyll serve --livereload
 - em cada post usa `tags: [tag1, tag2]`
 - pagina `/tags/` mostra todas as tags
 - pagina `/artigos/` tem filtro por tag e busca
+
+## paginacao
+
+- removi `paginate: 0` porque isso quebra o build do github pages (jekyll-paginate divide por zero e estoura `Infinity`)
+- se quiser paginar depois, usa `paginate: 8` e eu te passo o ajuste de template

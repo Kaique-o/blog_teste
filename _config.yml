@@ -42,8 +42,6 @@ defaults:
 
 # build
 permalink: /artigos/:categories/:year/:month/:day/:title/
-paginate: 0
-
 # exclude
 exclude:
   - Gemfile
