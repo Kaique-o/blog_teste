@@ -2,7 +2,7 @@ title: Ka Blog
 tagline: projetos, tutoriais e artigos
 description: "portfolio e blog do ka para postar projetos, tutoriais e artigos proprios"
 url: ""        # ex: https://seuusuario.github.io
-baseurl: ""    # se for repo tipo /meu-blog, coloca "/meu-blog"
+baseurl: "/blog_teste"    # se seu repo for outro nome troca aqui
 
 author:
   name: Ka
