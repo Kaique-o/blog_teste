@@ -1,8 +1,6 @@
 - title: home
   url: /
-- title: projetos
-  url: /projetos/
+- title: blog
+  url: /artigos/
 - title: sobre
   url: /sobre/
-- title: artigos
-  url: /artigos/

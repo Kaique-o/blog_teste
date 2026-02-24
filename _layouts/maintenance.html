@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    {% include head.html %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #0b0d10;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+        }
+
+        .maintenance-content {
+            max-width: 600px;
+            padding: 2rem;
+        }
+
+        .logo-dot {
+            color: #0070f3;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(180deg, #fff 0%, #a2a2a2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: #a2a2a2;
+            line-height: 1.6;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(0, 112, 243, 0.1);
+            color: #0070f3;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 112, 243, 0.2);
+        }
+    </style>
+</head>
+
+<body class="theme-dark">
+    <div class="maintenance-content">
+        <span class="logo-dot">•</span>
+        <div class="badge">EM MANUTENÇÃO</div>
+        <h1>Estamos refinando nossa navegação.</h1>
+        {{ content }}
+    </div>
+</body>
+
+</html>

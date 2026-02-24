@@ -7,18 +7,20 @@
 
     <nav class="nav" aria-label="navegacao principal">
       {% for item in site.data.navigation %}
-        <a class="nav-link{% if page.url == item.url %} is-active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      <a class="nav-link{% if page.url == item.url %} is-active{% endif %}" href="{{ item.url | relative_url }}">{{
+        item.title }}</a>
       {% endfor %}
     </nav>
 
     <div class="header-cta">
-      <a class="btn btn-primary" href="{{ '/contato/' | relative_url }}">contrate-me</a>
-      <button class="btn btn-ghost icon-btn" type="button" id="themeToggle" aria-label="alternar tema" title="alternar tema">
+      <button class="btn btn-ghost icon-btn" type="button" id="themeToggle" aria-label="alternar tema"
+        title="alternar tema">
         <span class="icon" aria-hidden="true">◐</span>
       </button>
     </div>
 
-    <button class="btn btn-ghost burger" type="button" id="navToggle" aria-label="abrir menu" aria-controls="mobileNav" aria-expanded="false">
+    <button class="btn btn-ghost burger" type="button" id="navToggle" aria-label="abrir menu" aria-controls="mobileNav"
+      aria-expanded="false">
       <span aria-hidden="true">≡</span>
     </button>
   </div>
@@ -26,7 +28,7 @@
   <div class="mobile-nav" id="mobileNav" hidden>
     <div class="container mobile-nav-inner">
       {% for item in site.data.navigation %}
-        <a class="mobile-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+      <a class="mobile-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>
       {% endfor %}
       <a class="btn btn-primary btn-block" href="{{ '/contato/' | relative_url }}">contrate-me</a>
     </div>

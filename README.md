@@ -1,35 +1,40 @@
-# Ka Blog (Jekyll + GitHub Pages)
+# Ka Blog - Tutorial de Postagem
 
-## como publicar
+Este repositório agora foca totalmente em conteúdo e artigos. Abaixo, o guia de como criar um novo post.
 
-1. cria um repo no github (public)
-2. joga esses arquivos na raiz do repo
-3. no github: settings -> pages -> build and deployment
-   - source: deploy from a branch
-   - branch: main / root
-4. pronto
+## Como criar um novo post
 
-## rodar local (opcional)
+1. **Crie o arquivo**:
+   - Vá para a pasta `_posts/`.
+   - Crie um arquivo com o nome no formato: `AAAA-MM-DD-titulo-do-post.md`.
+   - Exemplo: `2024-03-24-meu-primeiro-tutorial.md`.
 
-> requer ruby + bundler
+2. **Adicione o cabeçalho (Frontmatter)**:
+   Todo post deve começar com esse bloco no início do arquivo:
+   ```markdown
+   ---
+   layout: post
+   title: "Título do seu Post"
+   description: "Uma breve descrição que aparece nos cards"
+   date: 2024-03-24 10:00:00 -0300
+   tags: [tutorial, javascript, web]
+   read_time: 5
+   ---
+   ```
 
-```bash
-bundle install
-bundle exec jekyll serve --livereload
-```
+3. **Escreva seu conteúdo**:
+   - Abaixo do segundo `---`, escreva em Markdown.
+   - Use `#` para títulos, `##` para subtítulos.
+   - Use ` ```javascript ` para blocos de código com destaque de sintaxe.
 
-## baseurl
+4. **Publicação**:
+   - Faça o commit e push para o GitHub.
+   - O GitHub Pages fará o build automaticamente.
 
-- se o repo for `seuusuario.github.io` deixa `baseurl: ""`
-- se o repo for `meu-blog` e o link virar `seuusuario.github.io/meu-blog` coloca `baseurl: "/meu-blog"`
+## Dicas de Blog
+- **Tags**: As tags que você coloca no cabeçalho alimentam o filtro da página de artigos.
+- **Imagens**: Coloque imagens em `assets/img/` e use `![descrição]({{ '/assets/img/foto.jpg' | relative_url }})` no markdown.
+- **Link Relativo**: Sempre use o filtro `| relative_url` em links internos para garantir que funcionem em subpastas.
 
-## tags
-
-- em cada post usa `tags: [tag1, tag2]`
-- pagina `/tags/` mostra todas as tags
-- pagina `/artigos/` tem filtro por tag e busca
-
-## paginacao
-
-- removi `paginate: 0` porque isso quebra o build do github pages (jekyll-paginate divide por zero e estoura `Infinity`)
-- se quiser paginar depois, usa `paginate: 8` e eu te passo o ajuste de template
+---
+Para rodar localmente e testar antes de subir: `bundle exec jekyll serve --livereload`
